@@ -65,19 +65,34 @@ public class Ejercicio13 {
         
         //para saber los suspensos
         int suspenso;
-        int []suspensos = new int[3];
+        int [][]suspensos = new int[1][3];
+//        for (int j = 0; j < 3; j++) {
+//            suspenso=0;
+//            for (int i = 0; i < notas.length; i++) {
+//                if(notas[i][j]<5){
+//                    suspenso++;
+//                    
+//                } 
+//            }
+//            System.out.print(+suspenso+"     ");
+//        }
         System.out.print("Suspen: ");
         for (int j = 0; j < 3; j++) {
             suspenso=0;
-            for (int i = 0; i < notas.length; i++) {
-                if(notas[i][j]<5){
-                    suspenso++;
-                    
-                } 
+            for (int i = 0; i <notas.length; i++) {
+                if (notas[i][j]<5){
+                    suspenso++; 
+                }
+                
             }
-            System.out.print(+suspenso+"     ");
+            suspensos[0][j]=suspenso;
+            System.out.print(+suspensos[0][j]+"     ");
         }
-        
+
+
+
+
+        //MEJOR MEDIA
         System.out.println();
         double  mejorMedia=0;
         int posicion =0;
