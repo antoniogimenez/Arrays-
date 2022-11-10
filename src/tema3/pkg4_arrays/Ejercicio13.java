@@ -20,11 +20,11 @@ public class Ejercicio13 {
         Scanner s = new Scanner (System.in);
         
         String []alumnos = new String [5];
-        alumnos[0] = "Juan";
-        alumnos[1] = "Celia";
+        alumnos[0] = "Juan  ";
+        alumnos[1] = "Celia ";
         alumnos[2] = "Alfedo";
         alumnos[3] = "Maria";
-        alumnos[4] = "Pedro";
+        alumnos[4] = "Pedro ";
         double suma;
         double [][]notas = new double [5][4];
         
@@ -44,44 +44,52 @@ public class Ejercicio13 {
         notas[4][1] = 2;
         notas[4][2] = 4;
         
-//        System.out.println(" E1   E2   E3   MEDIA");
-//        System.out.println("---------------------------");
-//        for (int i = 0; i < notas.length; i++) {
-//            for (int j = 0; j < 4; j++) {
-//                System.out.print(" "+notas[i][j]+" ");  //para que salga en cuadrado es sin LN
-//            }
-//            System.out.println(" ");
-//        }
-        
+//        PARA LA NOTA MEDIA
         for(int i = 0; i < notas.length; i++) {
             suma =0;
-            for (int j = 0; j < 4; j++) {
+            for (int j = 0; j < 3; j++) {
                 suma = suma + notas[i][j];
             }
-            notas[i][4] = suma/3;
+            notas[i][3] = suma/3;
+        }
+        System.out.println("        E1    E2    E3   MEDIA");
+        System.out.println("-------------------------------");
+        for (int i = 0; i < notas.length; i++) {
+            System.out.print(alumnos[i]);
+            for (int j = 0; j < notas[0].length; j++) {
+                System.out.printf(" %.2f ",notas[i][j]);  //para que salga en cuadrado es sin LN
+            }
+            System.out.println(" ");
+        }
+        System.out.println("------------------------------");
+        
+        //para saber los suspensos
+        int suspenso;
+        int []suspensos = new int[3];
+        System.out.print("Suspen: ");
+        for (int j = 0; j < 3; j++) {
+            suspenso=0;
+            for (int i = 0; i < notas.length; i++) {
+                if(notas[i][j]<5){
+                    suspenso++;
+                    
+                } 
+            }
+            System.out.print(+suspenso+"     ");
         }
         
-//        System.out.println(" E1   E2   E3   MEDIA");
-//        System.out.println("---------------------------");
-//        for(int i = 0; i < notas.length; i++) {
-//            for (int j = 0; j < 4; j++) {
-//                System.out.print(" "+notas[i][j]+" ");  //para que salga en cuadrado es sin LN
-//            }
-//            System.out.println(" ");
-//        }
+        System.out.println();
+        double  mejorMedia=0;
+        int posicion =0;
+        for (int i = 0; i < notas.length; i++) {
+            if (notas[i][3]>mejorMedia){
+                mejorMedia = notas[i][3];
+                posicion = i;
+            }
+        }
+        System.out.println("El alumno con mejor media es "+alumnos[posicion]);
+    }
         
-        
-//        //para saber los suspensos
-//        int suspenso;
-//        for (int j = 0; j < 3; j++) {
-//            suspenso=0;
-//            for (int i = 0; i < notas.length; i++) {
-//                if(notas[i][j]<5){
-//                    suspenso++;
-//                } 
-//            }
-//            System.out.println("En el "+(j+1)+"ª evaluacion hay "+suspenso+"suspensos");
-//        }
-//    }
-//    
-//}
+}
+  
+
